@@ -1,0 +1,41 @@
+name: linter
+
+on:
+  push:
+    paths-ignore:
+      - "*.md"
+      - "LICENSE"
+      - ".gitignore"
+      - "Dockerfile"
+      - "compose.yaml"
+      - ".dockerignore"
+      - ".env*"
+  pull_request:
+    paths-ignore:
+      - "*.md"
+      - "LICENSE"
+      - ".gitignore"
+      - "Dockerfile"
+      - "compose.yaml"
+      - ".dockerignore"
+      - ".env*"
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Install uv
+        uses: astral-sh/setup-uv@v5
+        with:
+          enable-cache: true
+          cache-dependency-glob: "uv.lock"
+
+      - name: Install the project
+        run: uv sync --frozen --all-extras --dev
+
+      - name: Run linter
+        run: uv run ruff check .
