@@ -27,12 +27,25 @@
 
 1. Установите Docker.
 2. Создайте файл `.env` на основе [.env.template](.env.template) и настройте все описанные там параметры.
+3. Запустите сборку образа:
 
-...
+```shell
+docker build -t whocame_cv
+```
+
+4. Теперь запускать образ можно командой:
+```shell
+docker run -d --name whocame_cv_standalone whocame_cv
+```
 
 ### Без использования Docker
 
-1. Установите Python и пакетный менеджер uv.
+1. Установите пакетный менеджер uv одним из способов. Например, для Windows:
+
+```shell
+powershell -ExecutionPolicy ByPass -c "irm https://astral.sh/uv/install.ps1 | iex"
+```
+
 2. Установите зависимости:
 
 ```shell
