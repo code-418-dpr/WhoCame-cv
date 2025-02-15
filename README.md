@@ -57,7 +57,7 @@ uv sync --frozen --no-dev
 4. Теперь запускать проект можно командой:
 
 ```shell
-whocame
+uv run whocame
 ```
 
 ## Модификация

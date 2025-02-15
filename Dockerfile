@@ -30,4 +30,4 @@ ENV PATH="/app/.venv/bin:$PATH"
 ENTRYPOINT []
 
 # Run the application by default
-CMD ["whocame"]
+CMD ["uv", "run", "whocame"]

@@ -7,7 +7,9 @@ wheels/
 *.egg-info
 
 ### IDEs and editors
-/.idea
+.idea/
+.vs/
+.vscode/
 .project
 .classpath
 .c9/
@@ -15,20 +17,12 @@ wheels/
 .settings/
 *.sublime-workspace
 
-### VS Code
-.vscode/*
-!.vscode/settings.json
-!.vscode/tasks.json
-!.vscode/launch.json
-!.vscode/extensions.json
-
-### Dotenv environment variable files
+### Env files
 .env
-.env.development.local
-.env.test.local
-.env.production.local
-.env.local
 
 ### Temp directory
-.temp
-.tmp
+.temp/
+.tmp/
+
+### Misc
+piccolo_migrations/
