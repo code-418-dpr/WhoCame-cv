@@ -3,6 +3,7 @@ name = "WhoCame-cv"
 version = "0.0.1"
 requires-python = "==3.12.*"
 dependencies = [
+    "aiofiles>=24.1.0",
     "deepface>=0.0.93",
     "opencv-python>=4.11.0.86",
     "piccolo[postgres,uvloop]>=1.22.0",
@@ -12,8 +13,8 @@ dependencies = [
 ]
 
 [project.scripts]
-whocame = "whocame_cv.__main__:main"
-db-seeder = "whocame_cv.db_seeder:seed"
+cv = "whocame_cv:main_sync"
+db-seeder = "db:seed_sync"
 
 [build-system]
 requires = ["hatchling"]

@@ -26,3 +26,5 @@ wheels/
 
 ### Misc
 piccolo_migrations/
+src/db/faces/
+src/whocame_cv/videos/
