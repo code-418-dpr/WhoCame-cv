@@ -270,11 +270,11 @@ wheels = [
 
 [[package]]
 name = "gast"
-version = "0.4.0"
+version = "0.6.0"
 source = { registry = "https://pypi.org/simple" }
-sdist = { url = "https://files.pythonhosted.org/packages/83/4a/07c7e59cef23fb147454663c3271c21da68ba2ab141427c20548ae5a8a4d/gast-0.4.0.tar.gz", hash = "sha256:40feb7b8b8434785585ab224d1568b857edb18297e5a3047f1ba012bc83b42c1", size = 13804 }
+sdist = { url = "https://files.pythonhosted.org/packages/3c/14/c566f5ca00c115db7725263408ff952b8ae6d6a4e792ef9c84e77d9af7a1/gast-0.6.0.tar.gz", hash = "sha256:88fc5300d32c7ac6ca7b515310862f71e6fdf2c029bbec7c66c0f5dd47b6b1fb", size = 27708 }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/b6/48/583c032b79ae5b3daa02225a675aeb673e58d2cb698e78510feceb11958c/gast-0.4.0-py3-none-any.whl", hash = "sha256:b7adcdd5adbebf1adf17378da5ba3f543684dbec47b1cda1f3997e573cd542c4", size = 9824 },
+    { url = "https://files.pythonhosted.org/packages/a3/61/8001b38461d751cd1a0c3a6ae84346796a5758123f3ed97a1b121dfbf4f3/gast-0.6.0-py3-none-any.whl", hash = "sha256:52b182313f7330389f72b069ba00f174cfe2a06411099547288839c6cbafbd54", size = 21173 },
 ]
 
 [[package]]
@@ -647,7 +647,7 @@ wheels = [
 
 [[package]]
 name = "piccolo"
-version = "1.22.0"
+version = "1.23.0"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "black" },
@@ -658,9 +658,9 @@ dependencies = [
     { name = "targ" },
     { name = "typing-extensions" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/c2/68/d92d990fd7c03e3301084a81273c5f1f6dd5500703a816b8905a6c1e01bf/piccolo-1.22.0.tar.gz", hash = "sha256:cf8c11dddb8b8ef92526217e073c55f3ab067912b775e3e093fbc2d3749195e1", size = 280911 }
+sdist = { url = "https://files.pythonhosted.org/packages/57/12/df82133004db7cfc94b4f3b840d1c6ae63cacdb8656be9d9fc58cfa290f5/piccolo-1.23.0.tar.gz", hash = "sha256:69135dd1c2e60c87e77dcff7e8e0a87dc375b2d264a3635298646fe7a8b609f6", size = 281333 }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/5c/79/2883660746854b3b8c96dd03d144aa815d7d1aab88e1296dc5edcda1e324/piccolo-1.22.0-py3-none-any.whl", hash = "sha256:410e451e5f7c418b08b71666554008a1252ad7d33f754a2078dd2fd973aa57c1", size = 396005 },
+    { url = "https://files.pythonhosted.org/packages/92/d9/d89e08ca216fc077ec7cb07638570d23ef57e005964e62d5cfaa0aa1d0f3/piccolo-1.23.0-py3-none-any.whl", hash = "sha256:888532d8c4e33b635bb320c2d5fddc32146d26bce9f52cc8db51622f97a521ce", size = 401883 },
 ]
 
 [package.optional-dependencies]
