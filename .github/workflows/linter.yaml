@@ -31,14 +31,12 @@ jobs:
       - name: Setup uv cache
         uses: actions/cache@v4
         with:
-          path: /tmp/.uv-cache
+          path: /tmp/setup-uv-cache
           key: ${{ runner.os }}-uv-${{ hashFiles('uv.lock') }}
           restore-keys: ${{ runner.os }}-uv-
 
       - name: Install uv
         uses: astral-sh/setup-uv@v5
-        with:
-          enable-cache: true
 
       - name: Install the project
         run: uv sync --frozen --all-extras --dev
