@@ -1,5 +1,4 @@
 import asyncio
-import logging
 from pathlib import Path
 from typing import Any
 
@@ -7,10 +6,11 @@ import cv2
 import numpy as np
 
 from db.tables import UnknownVisitors, Visitors
+from logger import get_logger
 from whocame_cv.deepface_utils import compare_embeddings, deepface_represent, image_np_embeddings
 from whocame_cv.source_decorators import frame_series
 
-logger = logging.getLogger(__name__)
+logger = get_logger(__name__)
 
 
 def single_image_embedding(image: bytes) -> np.ndarray:
@@ -54,7 +54,7 @@ async def save_unknown_face(
     await UnknownVisitors(pic=face_bytes, nearest_distance=nearest_distance).save()
 
 
-logger.info("Создание векторов изображений")
+logger.info("Creating image vectors")
 visitors = asyncio.run(get_visitors_embeddings())
 recognized_visitors, unrecognized_visitors = {}, {}
 
@@ -68,10 +68,10 @@ async def main(frame: np.ndarray) -> None:
     if faces is None:
         return
 
-    logger.info("Найдено %s лиц", len(faces))
+    logger.info("Found %s faces", len(faces))
     for face in faces:
         embedding: np.ndarray = face["embedding"]
-        db_id = db_embedding = None
+        db_id = None
         verdict, max_value = False, 0.0
         for db_id, db_embedding_list in {**unrecognized_visitors, **recognized_visitors, **visitors}.items():  # noqa: B007
             db_embedding = db_embedding_list[0]
@@ -92,10 +92,10 @@ async def main(frame: np.ndarray) -> None:
         if verdict:
             if db_id not in recognized_visitors and db_id not in unrecognized_visitors:
                 found += 1
-                logger.info("%s / %s Распознан %s (%s)\n", found, total, db_id, max_value)
+                logger.info("%s / %s Recognized %s (%s)\n", found, total, db_id, max_value)
                 recognized_visitors[db_id] = [embedding]
                 visitors.pop(db_id)
         else:
-            logger.info("%s / %s Не распознано одно из лиц (%s)\n", found, total, max_value)
+            logger.info("%s / %s Unrecognized one of the faces (%s)\n", found, total, max_value)
             unrecognized_visitors[str(embedding)] = [embedding]
             await save_unknown_face(frame, face["facial_area"], max_value)

@@ -19,7 +19,7 @@ def frame_series(
         async def wrapper() -> None:
             image_files = [f for f in folder_path.iterdir() if f.is_file and f.suffix in (".jpg", ".jpeg", ".png")]
 
-            for num, image_file in enumerate(image_files):
+            for image_file in image_files:
                 frame = cv2.imread(image_file)
 
                 if frame is None:
