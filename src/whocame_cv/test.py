@@ -63,7 +63,7 @@ total = found = 0
 
 @frame_series(Path(__file__).parent / "videos" / "1")
 async def main(frame: np.ndarray) -> None:
-    global total, found
+    global total, found  # noqa: PLW0603
     faces = deepface_represent(frame)
     if faces is None:
         return
@@ -81,7 +81,7 @@ async def main(frame: np.ndarray) -> None:
                 db_embedding = db_embedding_list[1]
                 verdict, value = compare_embeddings(db_embedding, embedding)
                 max_value = max(max_value, value)
-                if not verdict and len(db_embedding_list) > 2:
+                if not verdict and len(db_embedding_list) > 2:  # noqa: PLR2004
                     db_embedding = db_embedding_list[2]
                     verdict, value = compare_embeddings(db_embedding, embedding)
                     max_value = max(max_value, value)
